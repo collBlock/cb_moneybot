@@ -101,7 +101,6 @@ def lalala(message):
             five =  types.InlineKeyboardButton(text='5', callback_data='five')
             nums.add(one,two,three,four,five)
             
-            work_data.stop()
 
             bot.send_animation(chat_id=message.chat.id, animation=vid,reply_to_message_id=message.id)
             bot.send_message(chat_id=message.chat.id,text='<b>Ты легенда</b>\nЯ записал, время твоего начала\nВведи сколько заказов ты сделал',parse_mode='html',reply_markup=nums)
