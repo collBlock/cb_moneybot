@@ -32,7 +32,7 @@ def counts(int):  # просим ввести сколько заказов
 def start():  # записываем время сейчас старт
     now = datetime.now()
     ws[start_link] = now.strftime("%H:%M")
-    with open('bot\count_run.py', 'w') as file:  # накидываем на счетчик +1
+    with open('bot/count_run.py', 'w') as file:  # накидываем на счетчик +1
         file.write(f'n = {n+1}')
 
     wb.save('way_to_dream.xlsx')
