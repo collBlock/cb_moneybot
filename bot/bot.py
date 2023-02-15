@@ -5,7 +5,6 @@ from config import token
 
 types = telebot.types
 bot = telebot.TeleBot(token)
-bost = .
 
 #отработка /start
 @bot.message_handler(commands=['start'])
