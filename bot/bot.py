@@ -9,7 +9,7 @@ bot = telebot.TeleBot(token)
 #отработка /start
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    bot.send_sticker(message.chat.id, open('bot\stickers\hi.webp', 'rb'))
+    bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAIfF2PszletHz55Wfxy6K4JPqU-O-rEAAILAAMOR8coqKD0-uKs4cEuBA')
     keyboard=types.InlineKeyboardMarkup()
     start_work=types.InlineKeyboardButton(text='Работой 💼', callback_data='start_work')
     statistic=types.InlineKeyboardButton(text='Анализом 📊', callback_data='static')
@@ -87,11 +87,11 @@ def lalala(message):
             #выбираем рандомную гифку
             random = randint(1,3)
             if random == 1:
-                vid = open('bot\stickers\sponge_bob_thumb_up_gif_compressed.gif','rb')
+                vid = open('bot/stickers/sponge_bob_thumb_up_gif_compressed.gif','rb')
             elif random == 2:
-                vid = open('bot\stickers\good_boy.webp', 'rb')
+                vid = open('bot/stickers/good_boy.webp', 'rb')
             elif random == 3:
-                vid = open('bot\stickers\win.gif','rb')
+                vid = open('bot/stickers/win.gif','rb')
 
             nums =  types.InlineKeyboardMarkup(row_width=8)
             one =   types.InlineKeyboardButton(text='1', callback_data='one')
