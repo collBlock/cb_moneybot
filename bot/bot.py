@@ -89,7 +89,7 @@ def lalala(message):
             if random == 1:
                 vid = open('bot/stickers/sponge_bob_thumb_up_gif_compressed.gif','rb')
             elif random == 2:
-                vid = open('bot/stickers/good_boy.webp', 'rb')
+                vid = "CAACAgIAAxkBAAIh_2PzyPT4xVlQbF53WdPJw1eOuVXHAAIPAAMOR8coKchfPDiosqMuBA"
             elif random == 3:
                 vid = open('bot/stickers/win.gif','rb')
 
@@ -112,7 +112,7 @@ def lalala(message):
                 vklad = round((int(rubs) * 0.55),1)
                 mamy = round((int(rubs) * 0.15),1)
                 work_data.money(rubs)
-
+                work_data.stop()
                 link_bank = types.InlineKeyboardMarkup()  
                 my_vklad = types.InlineKeyboardButton(text='Перевести на вклад', url='ya.ru') 
                 mamy_bank =   types.InlineKeyboardButton(text='Перевод маме', url='t.me')
