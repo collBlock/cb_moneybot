@@ -1,11 +1,12 @@
 import json
+from pathlib import Path
 from datetime import date, datetime
 
 from openpyxl import load_workbook
 
-today = date.today()
-os.getenv
-wb = load_workbook(filename='way_to_dream.xlsx')
+today = date.today
+BASE_DIR = Path(__file__).resolve().parent.parent
+wb = load_workbook(filename=f'{BASE_DIR}/way_to_dream.xlsx')
 ws = wb['новая сводка']
 
 data = json.load(open('bot\count_run.json'))
