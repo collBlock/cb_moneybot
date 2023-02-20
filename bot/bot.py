@@ -1,10 +1,12 @@
 import telebot
 import work_data
+import json
 from random import randint
 from config import token
 
 types = telebot.types
 bot = telebot.TeleBot(token)
+
 
 #отработка /start
 @bot.message_handler(commands=['start'])
@@ -17,6 +19,12 @@ def start_message(message):
 
     bot.send_message(message.chat.id, "Добро пожаловать, {0.first_name}!\n - <b>{1.first_name}</b>, бот созданный чтобы помогать мне ввести учет доходов.".format(message.from_user, bot.get_me()), parse_mode='html')
     bot.send_message(message.chat.id,'Выбери, чем мы сейчас займемся',reply_markup=keyboard)
+
+@bot.message_handler(commands=['replace_tabl'])
+def help_message(message):
+    data = json.load(open('bot\count_run.json'))
+    n = data["count_run"]
+    bot.send_message(message.chat.id, f"<b>Для смены таблицы отправьте ее файл</b>\n<i>Для работы нужен лист с названием новая сводка</i>\n<b>Количество запусов</b>: <code>{n}</code>",parse_mode='html')
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
@@ -80,6 +88,22 @@ def callback_inline(call):
             excel = open('way_to_dream.xlsx','rb')
             bot.send_document(call.message.chat.id,excel)
 
+@bot.message_handler(content_types=['document'])
+def handle_docs_photo(message):
+    try:
+        chat_id = message.chat.id
+
+        file_info = bot.get_file(message.document.file_id)
+        downloaded_file = bot.download_file(file_info.file_path)
+
+        src = 'way_to_dream.xlsx'
+        with open(src, 'wb') as new_file:
+            new_file.write(downloaded_file)
+
+        bot.reply_to(message, "Рабочая таблица заменена")
+    except Exception as e:
+        bot.reply_to(message, e)    
+
 @bot.message_handler(content_types=['text'])
 def lalala(message):
     if message.chat.type == 'private':
@@ -122,5 +146,6 @@ def lalala(message):
                 
                 excel = open('way_to_dream.xlsx','rb')
                 bot.send_document(message.chat.id,excel,reply_to_message_id=enter.id)
+
 if __name__ == '__main__':
     bot.infinity_polling(none_stop=True)
