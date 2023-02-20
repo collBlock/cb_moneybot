@@ -1,7 +1,8 @@
-import telebot
-import work_data
 import json
 from random import randint
+
+import telebot
+import work_data
 from config import token
 
 types = telebot.types

@@ -1,9 +1,10 @@
-from openpyxl import load_workbook
-from datetime import date, datetime
 import json
+from datetime import date, datetime
+
+from openpyxl import load_workbook
 
 today = date.today()
-
+os.getenv
 wb = load_workbook(filename='way_to_dream.xlsx')
 ws = wb['новая сводка']
 
