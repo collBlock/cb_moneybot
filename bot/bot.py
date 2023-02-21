@@ -164,9 +164,9 @@ def lalala(message):
                 work_data.stop()
                 link_bank = types.InlineKeyboardMarkup()
                 my_vklad = types.InlineKeyboardButton(
-                    text='Перевести на вклад', url='ya.ru')
+                    text='Перевести на вклад', url='https://www.tinkoff.ru/rm/dolgopyatova.olga1/iu6xO55909')
                 mamy_bank = types.InlineKeyboardButton(
-                    text='Перевод маме', url='t.me')
+                    text='Перевод маме', url='https://www.tinkoff.ru/rm/dolgopyatova.olga1/dI4Ic74745')
                 link_bank.add(my_vklad, mamy_bank)
                 # формируем вывод
                 enter = bot.send_message(
