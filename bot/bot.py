@@ -1,6 +1,9 @@
 import json
+import logging
 from pathlib import Path
 from random import randint
+import sys
+import time
 
 import telebot
 import work_data
@@ -183,5 +186,10 @@ def lalala(message):
                     json.dump(data, f)
 
 
-if __name__ == '__main__':
-    bot.infinity_polling(none_stop=True)
+while True:
+    try:
+      bot.polling(none_stop=True)
+    except: 
+      print('bolt')
+      logging.error('error: {}'.format(sys.exc_info()[0]))
+      time.sleep(20)
