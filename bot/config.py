@@ -1,2 +1,2 @@
-token = '5676447388:AAF4nbym9sAb4xjeNUet8Cc3JYOZY1SrxFo'
+token = 'your token'
 APP_NAME = 'cb_moneybot'
